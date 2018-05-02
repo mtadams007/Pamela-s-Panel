@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_02_150836) do
+ActiveRecord::Schema.define(version: 2018_05_02_190445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "administrators", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "salary"
+    t.string "education"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cohorts", force: :cascade do |t|
     t.string "name"
@@ -38,6 +47,16 @@ ActiveRecord::Schema.define(version: 2018_05_02_150836) do
     t.string "grade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.string "profileable_type"
+    t.integer "profileable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profileable_type", "profileable_id"], name: "index_profiles_on_profileable_type_and_profileable_id"
   end
 
   create_table "students", force: :cascade do |t|

@@ -8,6 +8,6 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add index :profiles, [:profileable_type, :profileable_id]
+    add_index :profiles, [:profileable_type, :profileable_id]
   end
 end
