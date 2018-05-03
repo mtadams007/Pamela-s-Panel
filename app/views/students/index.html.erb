@@ -1,2 +1,8 @@
 <h1>imma study</h1>
-<h2><%=@student.first_name%></h2>
+<% @students.each do |student| %>
+<h2><%= student.first_name %> <%= student.last_name %></h2>
+<h2><%= student.first_name %></h2>
+<h2><%= student.grades.first.grade %></h2>
+
+<h2><%= student.profile.username %></h2>
+<%end%>

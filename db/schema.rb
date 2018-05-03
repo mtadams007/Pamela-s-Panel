@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_05_02_190445) do
     t.string "first_name"
     t.string "last_name"
     t.integer "salary"
+    t.integer "age"
     t.string "education"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,7 +29,7 @@ ActiveRecord::Schema.define(version: 2018_05_02_190445) do
     t.string "name"
     t.date "start"
     t.date "end"
-    t.integer "user_id"
+    t.integer "educator_id"
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,6 +38,16 @@ ActiveRecord::Schema.define(version: 2018_05_02_190445) do
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.integer "hours"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "educators", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.integer "salary"
+    t.string "education"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,17 +74,6 @@ ActiveRecord::Schema.define(version: 2018_05_02_190445) do
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
-    t.string "education"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.boolean "is_admin"
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "age"
-    t.integer "salary"
     t.string "education"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
