@@ -1,2 +1,9 @@
-<h1>Grades#new</h1>
-<p>Find me in app/views/grades/new.html.erb</p>
+<%= form_for [@cohort, @grade] do |f| %>
+  <%= f.label :mark %>
+  <%= f.text_field :mark%>
+  <%= f.label :student_id %>
+  <%= f.collection_select :student_id, Student.order(:last_name), :id,:last_name, include_blank: true %>
+  <%= f.hidden_field :cohort_id, value: params[:cohort_id]%>
+
+  <%= f.submit %>
+<% end %>

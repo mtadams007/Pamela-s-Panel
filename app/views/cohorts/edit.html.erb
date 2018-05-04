@@ -8,6 +8,7 @@
   <%= f.label :educator_id %>
   <%= f.collection_select :educator_id, Educator.order(:last_name), :id,:last_name, include_blank: true, value: @cohort.educator_id %>
   <%= f.submit %>
+  <%= f.hidden_field :course_id, value: params[:course_id]%>
 <% end %>
 
 <%= link_to 'Drop', cohort_path(@cohort), method: :delete %>

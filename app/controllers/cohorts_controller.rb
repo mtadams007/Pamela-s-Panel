@@ -1,9 +1,8 @@
 class CohortsController < ApplicationController
-  def show
-  end
 
   def index
-    @cohorts = Cohort.all
+    # if statements when i can finally log in...
+    @cohorts = Cohort.where(course_id: params[:course_id])
   end
 
   def new
@@ -22,6 +21,7 @@ class CohortsController < ApplicationController
   end
 
   def edit
+    @course = Course.find(params[:course_id])
     @cohort = Cohort.find(params[:id])
   end
 
@@ -35,13 +35,13 @@ class CohortsController < ApplicationController
     @cohort = Cohort.find(params[:id])
     id = @cohort.course.id
     Cohort.find(params[:id]).destroy
-    redirect_to "/courses/#{@id}/cohorts"
+    redirect_to "/courses/#{id}/cohorts"
   end
 
   private
 
   def cohort_params
-    params.require(:cohort).permit(:name, :start, :date, :educator_id, :course_id)
+    params.require(:cohort).permit(:name, :start, :end, :educator_id, :course_id)
   end
 
 end

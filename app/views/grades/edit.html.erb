@@ -1,2 +1,7 @@
-<h1>Grades#edit</h1>
-<p>Find me in app/views/grades/edit.html.erb</p>
+<%= form_for [@cohort, @grade] do |f| %>
+  <%= f.label :mark %>
+  <%= f.text_field :mark, value: @grade.mark%>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Drop', grade_path(@grade), method: :delete %>
