@@ -1,10 +1,12 @@
-<%= form_for @student do |f| %>
+<%= form_for @educator do |f| %>
   <%= f.label :first_name %>
   <%= f.text_field :first_name%>
   <%= f.label :last_name %>
   <%= f.text_field :last_name%>
   <%= f.label :age %>
   <%= f.number_field :age%>
+  <%= f.label :salary %>
+  <%= f.number_field :salary%>
   <%= f.label :education %>
   <%= f.text_field :education%>
   <%= f.submit %>

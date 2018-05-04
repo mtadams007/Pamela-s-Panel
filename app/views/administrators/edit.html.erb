@@ -1,0 +1,15 @@
+<%= form_for @administrator do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, value: @administrator.first_name%>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, value: @administrator.last_name%>
+    <%= f.label :age %>
+    <%= f.number_field :age, value: @administrator.age%>
+    <%= f.label :education %>
+    <%= f.text_field :education, value: @administrator.education%>
+    <%= f.label :salary %>
+    <%= f.number_field :salary, value: @administrator.salary%>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to 'Fire', administrator_path(@administrator), method: :delete %>

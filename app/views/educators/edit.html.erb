@@ -1,0 +1,15 @@
+<%= form_for @educator do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, value: @educator.first_name%>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, value: @educator.last_name%>
+    <%= f.label :age %>
+    <%= f.number_field :age, value: @educator.age%>
+    <%= f.label :education %>
+    <%= f.text_field :education, value: @educator.education%>
+    <%= f.label :salary %>
+    <%= f.text_field :salary, value: @educator.salary%>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to 'Fire', educator_path(@educator), method: :delete %>

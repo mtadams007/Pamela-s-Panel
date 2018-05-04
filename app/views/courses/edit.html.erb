@@ -1,0 +1,9 @@
+<%= form_for @course do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, value: @course.name%>
+    <%= f.label :hours %>
+    <%= f.number_field :hours, value: @course.hours%>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to 'Drop', course_path(@course), method: :delete %>
