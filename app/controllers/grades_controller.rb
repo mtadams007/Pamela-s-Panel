@@ -1,7 +1,7 @@
 class GradesController < ApplicationController
 
   def index
-    @grades = Grade.all
+    @cohort = Cohort.find(params[:cohort_id])
   end
 
   def new

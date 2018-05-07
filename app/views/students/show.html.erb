@@ -1,1 +1,24 @@
 <h1><%= @student.first_name %> <%= @student.last_name %> </h1>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>Cohort</th>
+        <th>Professor</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @student.cohorts.each do |cohort| %>
+      <tr>
+        <td> <%= Course.find(cohort.course_id).name %></td>
+        <td> <%= cohort.name %></td>
+        <td><%= cohort.educator.last_name %></td>
+        <td><%= cohort.grades.find_by(student_id: @student.id).mark %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
