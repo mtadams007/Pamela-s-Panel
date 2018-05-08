@@ -1,5 +1,5 @@
-<div class="header-container">
-<h1 class="text-center"><%= @student.first_name %> <%= @student.last_name %>'s Grade</h1></div>
+<div class="header-container <%=@color_scheme%>_header">
+<h1 class="text-center <%=@color_scheme%>-h"><%= @student.first_name %> <%= @student.last_name %>'s Grade for <%=@cohort.name%></h1></div>
 <%= form_for [@cohort, @grade] do |f| %>
   <%= f.label :mark %>
   <%= f.text_field :mark, value: @grade.mark%>

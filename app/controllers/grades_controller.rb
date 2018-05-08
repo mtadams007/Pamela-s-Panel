@@ -12,24 +12,16 @@ class GradesController < ApplicationController
     pupils = Student.all
     pupils.each do |pupil|
       if cohort_pupils.include? pupil
-        puts '..........'
-        puts '..........'
-        puts '..........'
-        puts '..........'
-        puts '..........'
-        puts '..........'
-        puts '..........'
-        puts 'here'
       else
         @students.push(pupil)
       end
     end
-
+    @color_scheme = House.find(@cohort.educator.house_id).name.downcase
   end
 
   def create
     @grade = Grade.create(grade_params)
-    redirect_to '/cohorts/1/grades'
+    redirect_to "/cohorts/#{params[:cohort_id]}/grades"
   end
 
   def show
@@ -40,6 +32,7 @@ class GradesController < ApplicationController
     @cohort = Cohort.find(params[:cohort_id])
     @grade = Grade.find(params[:id])
     @student = Student.where(id: @grade.student_id)[0]
+    @color_scheme = House.find(@student.house_id).name.downcase
 
   end
 
