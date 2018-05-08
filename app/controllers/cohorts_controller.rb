@@ -18,6 +18,7 @@ class CohortsController < ApplicationController
 
   def show
     @cohort = Cohort.find(params[:id])
+    @color_scheme = House.find(@cohort.educator.house_id).name.downcase
 
   end
 

@@ -1,9 +1,9 @@
 <%= form_for [@cohort, @grade] do |f| %>
-  <%= f.label :mark %>
-  <%= f.text_field :mark%>
   <%= f.label :student_id %>
-  <%= f.collection_select :student_id, Student.order(:last_name), :id,:last_name, include_blank: true %>
+  <%=f.collection_select(:student_id, @students, :id, :last_name) %>
+
   <%= f.hidden_field :cohort_id, value: params[:cohort_id]%>
+  <%= f.hidden_field :mark, value: 'N/A'%>
 
   <%= f.submit %>
 <% end %>

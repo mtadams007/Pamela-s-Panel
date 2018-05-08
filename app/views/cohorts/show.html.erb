@@ -1,5 +1,5 @@
-<div class="header-container">
-<h1 class="text-center"><%= @cohort.name %> </h1>
+<div class="header-container <%=@color_scheme%>_header">
+<h1 class="text-center <%=@color_scheme%>_h"><%= @cohort.name %> </h1>
 </div>
 <h2>From:<%= @cohort.start %> Until:<%= @cohort.end %> </h2>
 <h2> Taught by: Professor <%= @cohort.educator.last_name %> </h2>

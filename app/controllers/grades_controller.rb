@@ -7,6 +7,24 @@ class GradesController < ApplicationController
   def new
     @cohort = Cohort.find(params[:cohort_id])
     @grade = Grade.new
+    @students = []
+    cohort_pupils = @cohort.students
+    pupils = Student.all
+    pupils.each do |pupil|
+      if cohort_pupils.include? pupil
+        puts '..........'
+        puts '..........'
+        puts '..........'
+        puts '..........'
+        puts '..........'
+        puts '..........'
+        puts '..........'
+        puts 'here'
+      else
+        @students.push(pupil)
+      end
+    end
+
   end
 
   def create
