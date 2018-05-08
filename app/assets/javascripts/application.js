@@ -19,9 +19,9 @@
 //= require bootstrap-sprockets
 
 $(".nav .nav-link").hover(function(){
-   $(this).addClass("active");
+   $(this).addClass("coloring");
 }, function(){
-  $(this).removeClass("active");
+  $(this).removeClass("coloring");
 });
 
 // $(".nav .nav-link").off("mouseover", function(){

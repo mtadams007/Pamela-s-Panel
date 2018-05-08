@@ -1,8 +1,10 @@
-<div class="header-container">
-<h1 class="text-center">House Cup Current Standings</h1></div>
 
 
-<h2> First Place: <%=@houses[3].name%>: <%=@houses[3].points%> Points</h2>
-<h2> Second Place: <%=@houses[2].name%>: <%=@houses[2].points%> Points</h2>
-<h2> Third Place: <%=@houses[1].name%>: <%=@houses[1].points%> Points</h2>
-<h2> Fourth Place: <%=@houses[0].name%>: <%=@houses[0].points%> Points</h2>
+<div class="header-container <%=@color_scheme%>_header">
+<h1 class="text-center <%=@color_scheme%>-h">House Cup Current Standings</h1></div>
+
+
+<h2 class="<%=@color_scheme%>-h"> First Place: <%=@houses[3].name%>: <%=@houses[3].points%> Points</h2>
+<h2 class="<%=@color_scheme%>-h"> Second Place: <%=@houses[2].name%>: <%=@houses[2].points%> Points</h2>
+<h2 class="<%=@color_scheme%>-h"> Third Place: <%=@houses[1].name%>: <%=@houses[1].points%> Points</h2>
+<h2 class="<%=@color_scheme%>-h"> Fourth Place: <%=@houses[0].name%>: <%=@houses[0].points%> Points</h2>

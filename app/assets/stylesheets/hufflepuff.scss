@@ -1,0 +1,65 @@
+// Place all the styles related to the grades controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'partials/colors';
+
+h2 {
+  font-family: Kurale, serif;
+  border-bottom: 1px solid $secondary_hufflepuff;
+  padding-bottom: 9px;
+}
+h1 {
+
+  margin-bottom: 0px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid $secondary_hufflepuff;
+  font-family: Kurale, serif;
+}
+
+.header-container {
+  margin-top: -10px;
+  margin-left: -20px;
+  margin-right: -20px;
+  background-color: $secondary_hufflepuff;
+  color: $primary_hufflepuff;
+  border-color: $primary_hufflepuff;
+  border-style: groove;
+}
+
+.navbar {
+  background-color: $primary_hufflepuff;
+}
+
+.navbar-brand {
+  color: $secondary_hufflepuff;
+}
+/*
+ * Sidebar
+ */
+
+ .nav-link {
+   color: $secondary_hufflepuff;
+ }
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid $secondary_hufflepuff;
+}
+
+/* Sidebar navigation */
+.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: $primary_hufflepuff;
+}
+
+.active {
+    background-color: $secondary_hufflepuff !important;
+}

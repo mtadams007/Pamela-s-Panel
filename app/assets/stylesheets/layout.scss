@@ -1,57 +1,106 @@
-@import 'partials/colors';
+
 
 // if else statement depending who is logged in
-$primary_color: $primary_ravenclaw;
-$secondary_color: $secondary_ravenclaw;
+@import 'partials/colors';
 
-body {
-  padding-top: 50px;
-  font-family: 'Reem Kufi', sans-serif;
-}
 
-/*
- * Typography
- */
-// a {
-//   color: $primary-color;
-// }
+
+
 h2 {
   font-family: Kurale, serif;
-  border-bottom: 1px solid $secondary_color;
   padding-bottom: 9px;
 }
 h1 {
-
   margin-bottom: 0px;
   padding-bottom: 9px;
-  border-bottom: 1px solid $secondary_color;
   font-family: Kurale, serif;
 }
 
+.ravenclaw-h{
+  border-bottom: 1px solid $secondary_ravenclaw;
+}
+.gryffindor-h{
+  border-bottom: 1px solid $secondary_gryffindor;
+}
+.ravenclaw-h{
+  border-bottom: 1px solid $secondary_ravenclaw;
+}
+.hufflepuff-h{
+  border-bottom: 1px solid $secondary_hufflepuff;
+}
+
+
+.slytherin_header{
+  background-color:$secondary_slytherin;
+  color: $primary_slytherin;
+  border-color: $primary_slytherin;
+}
+.ravenclaw_header{
+  background-color:$secondary_ravenclaw;
+  color: $primary_ravenclaw;
+  border-color: $primary_ravenclaw;
+}
+.gryffindor_header{
+  background-color:$secondary_gryffindor;
+  color: $primary_gryffindor;
+  border-color: $primary_gryffindor;
+}
+.hufflepuff_header{
+  background-color:$secondary_hufflepuff;
+  color: $primary_hufflepuff;
+  border-color: $primary_hufflepuff;
+}
 .header-container {
   margin-top: -10px;
   margin-left: -20px;
   margin-right: -20px;
-  background-color: $secondary_color;
-  color: $primary_color;
-  border-color: $primary_color;
+
   border-style: groove;
 }
 
-.navbar {
-  background-color: $primary_color;
+.slytherin_background {
+  background-color: $primary_slytherin;
+}
+.gryffindor_background {
+  background-color: $primary_gryffindor;
+}
+.ravenclaw_background {
+  background-color: $primary_ravenclaw;
+}
+.hufflepuff_background {
+  background-color: $primary_hufflepuff;
 }
 
-.navbar-brand {
-  color: $secondary_color;
+.slytherin_text {
+  color: $secondary_slytherin;
+}
+.gryffindor_text {
+  color: $secondary_gryffindor;
+}
+.ravenclaw_text {
+  color: $secondary_ravenclaw;
+}
+.hufflepuff_text {
+  color: $secondary_hufflepuff;
+}
+
+.slytherin_border {
+    border-right: 1px solid $secondary_slytherin;
+}
+.gryffindor_border{
+    border-right: 1px solid $secondary_gryffindor;
+}
+.ravenclaw_border {
+    border-right: 1px solid $secondary_ravenclaw;
+}
+.hufflepuff_border {
+    border-right: 1px solid $secondary_hufflepuff;
 }
 /*
  * Sidebar
  */
 
- .nav-link {
-   color: $secondary_color;
- }
+
 
 .sidebar {
   position: fixed;
@@ -62,15 +111,51 @@ h1 {
   padding: 20px;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  border-right: 1px solid $secondary_color;
+
 }
 
 /* Sidebar navigation */
 .sidebar {
   padding-left: 0;
   padding-right: 0;
-  background-color: $primary_color;
+
 }
+
+.slytherin_active {
+  &.coloring {
+    background-color: $secondary_slytherin;
+    color: $primary_slytherin;
+  }
+}
+.gryffindor_active {
+  &.coloring {
+    background-color: $secondary_gryffindor;
+    color: $primary_gryffindor;
+  }
+}
+.ravenclaw_active {
+  &.coloring {
+    background-color: $secondary_ravenclaw;
+    color: $primary_ravenclaw;
+  }
+}
+.hufflepuff_active {
+  &.coloring {
+    background-color: $secondary_hufflepuff;
+    color: $primary_hufflepuff;
+  }
+}
+
+body {
+  padding-top: 50px;
+  font-family: 'Reem Kufi', sans-serif;
+}
+
+/*
+ * Typography
+ */
+
+
 
 .sidebar .nav {
   margin-bottom: 20px;
@@ -102,10 +187,7 @@ h1 {
   padding-bottom: 1.5rem;
 }
 
-.active {
-    background-color: $secondary_color !important;
 
-}
 
 .primary-color {
 
