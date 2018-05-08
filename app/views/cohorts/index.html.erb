@@ -1,4 +1,4 @@
-<h1>Cavorting cohorts</h1>
+<h1>Cohorts</h1>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -12,7 +12,7 @@
     <tbody>
       <% @cohorts.each do |cohort| %>
       <tr>
-        <td> <a href="/cohorts/<%=cohort.id%>"><%= cohort.name %></a></td>
+        <td> <a href="/courses/<%=params[:course_id]%>/cohorts/<%=cohort.id%>"><%= cohort.name %></a></td>
         <td><a href="/educators/<%=cohort.educator.id%>">Professor <%= cohort.educator.last_name %></a></td>
         <td><%= cohort.start %></td>
         <td><%= cohort.end %></td>

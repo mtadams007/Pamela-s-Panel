@@ -17,3 +17,13 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+$(".nav .nav-link").hover(function(){
+   $(this).addClass("active");
+}, function(){
+  $(this).removeClass("active");
+});
+
+// $(".nav .nav-link").off("mouseover", function(){
+//   $(this).removeClass("active");
+// });

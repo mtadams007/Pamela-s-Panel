@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'house/index'
+  get 'house/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # root 'students#index'
+  root 'house#new'
 
   resources :profiles
   resources :students
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :grades
-
+  resources :house
 
   resources :administrators
 

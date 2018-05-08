@@ -1,0 +1,99 @@
+@import 'partials/colors';
+
+// if else statement depending who is logged in
+$primary_color: $primary_slytherin;
+$secondary_color: $secondary_slytherin;
+
+body {
+  padding-top: 50px;
+  font-family: 'Reem Kufi', sans-serif;
+}
+
+/*
+ * Typography
+ */
+
+h2 {
+  font-family: Kurale, serif;
+  border-bottom: 1px solid $secondary_color;
+  padding-bottom: 9px;
+}
+h1 {
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid $secondary_color;
+  font-family: Kurale, serif;
+}
+
+.navbar {
+  background-color: $primary_color;
+}
+
+.navbar-brand {
+  color: $secondary_color;
+}
+/*
+ * Sidebar
+ */
+
+ .nav-link {
+   color: $secondary_color;
+ }
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid $secondary_color;
+}
+
+/* Sidebar navigation */
+.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: $primary_color;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+
+/*
+ * Dashboard
+ */
+
+ /* Placeholders */
+.placeholders {
+  padding-bottom: 3rem;
+}
+
+.placeholder img {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.active {
+    background-color: $secondary_color !important;
+
+}
+
+.primary-color {
+
+}
