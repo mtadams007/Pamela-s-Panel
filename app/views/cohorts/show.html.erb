@@ -1,4 +1,6 @@
-<h1><%= @cohort.name %> </h1>
+<div class="header-container">
+<h1 class="text-center"><%= @cohort.name %> </h1>
+</div>
 <h2>From:<%= @cohort.start %> Until:<%= @cohort.end %> </h2>
 <h2> Taught by: Professor <%= @cohort.educator.last_name %> </h2>
 
@@ -18,7 +20,7 @@
         <td> <a href="/students/<%=student.id%>"><%= student.first_name %></a></td>
         <td><%= student.last_name %></td>
         <td><%= student.age %></td>
-        <td><%= student.grades.find_by(cohort_id:@cohort.id).mark %></td>
+        <td><a href="/cohorts/<%=@cohort.id%>/grades/<%=student.grades.find_by(cohort_id:@cohort.id).id%>/edit"><%= student.grades.find_by(cohort_id:@cohort.id).mark %></a></td>
       </tr>
       <% end %>
     </tbody>

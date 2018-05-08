@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2018_05_07_182429) do
     t.integer "age"
     t.integer "salary"
     t.string "education"
+    t.integer "house_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,6 +83,7 @@ ActiveRecord::Schema.define(version: 2018_05_07_182429) do
     t.string "last_name"
     t.integer "age"
     t.string "education"
+    t.integer "house_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

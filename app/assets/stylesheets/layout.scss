@@ -1,8 +1,8 @@
 @import 'partials/colors';
 
 // if else statement depending who is logged in
-$primary_color: $primary_slytherin;
-$secondary_color: $secondary_slytherin;
+$primary_color: $primary_ravenclaw;
+$secondary_color: $secondary_ravenclaw;
 
 body {
   padding-top: 50px;
@@ -12,17 +12,30 @@ body {
 /*
  * Typography
  */
-
+// a {
+//   color: $primary-color;
+// }
 h2 {
   font-family: Kurale, serif;
   border-bottom: 1px solid $secondary_color;
   padding-bottom: 9px;
 }
 h1 {
-  margin-bottom: 20px;
+
+  margin-bottom: 0px;
   padding-bottom: 9px;
   border-bottom: 1px solid $secondary_color;
   font-family: Kurale, serif;
+}
+
+.header-container {
+  margin-top: -10px;
+  margin-left: -20px;
+  margin-right: -20px;
+  background-color: $secondary_color;
+  color: $primary_color;
+  border-color: $primary_color;
+  border-style: groove;
 }
 
 .navbar {

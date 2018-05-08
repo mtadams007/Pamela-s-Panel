@@ -1,0 +1,5 @@
+<%= form_for @house do |f| %>
+    <%= f.label :points %>
+    <%= f.number_field :points, value: @house.points%>
+    <%= f.submit %>
+<% end %>

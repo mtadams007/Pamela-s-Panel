@@ -21,13 +21,14 @@ class GradesController < ApplicationController
   def edit
     @cohort = Cohort.find(params[:cohort_id])
     @grade = Grade.find(params[:id])
-    puts params
+    @student = Student.where(id: @grade.student_id)[0]
+
   end
 
   def update
     @grade = Grade.find(params[:id])
     @grade.update(grade_params)
-    redirect_to '/cohorts/1/grades'
+    redirect_to "/cohorts/#{params[:cohort_id]}/"
   end
 
   private
