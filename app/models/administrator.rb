@@ -1,3 +1,3 @@
 class Administrator < ApplicationRecord
-    has_one :profile, as: :profileable, dependent: :destroy
+    has_one :user, as: :userable, dependent: :destroy
 end

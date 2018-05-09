@@ -1,7 +1,7 @@
 <nav class="navbar <%=@color_scheme%>_background navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
   <!-- put an image here -->
   <span class="navbar-toggler-icon"></span>
-  <a class="navbar-brand <%=@color_scheme%>_text" href="#">Logout</a>
+  <h2 class="navbar-brand <%=@color_scheme%>_text"  ><%= link_to "Logout", destroy_user_session_path, method: :delete%></h2>
 
 
 </nav>

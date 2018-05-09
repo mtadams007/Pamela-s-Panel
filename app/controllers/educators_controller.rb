@@ -1,4 +1,5 @@
 class EducatorsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @educators = Educator.all

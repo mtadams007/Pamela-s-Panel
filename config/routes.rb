@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   get 'house/index'
   get 'house/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'house#new'
+  root 'login#index'
+  # root 'devise/sessions#sign_in'
 
-  resources :profiles
+
   resources :students
   resources :educators
 
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :grades
   resources :house
-
+  resources :login
   resources :administrators
 
 
