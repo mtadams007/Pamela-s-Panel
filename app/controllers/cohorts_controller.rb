@@ -9,17 +9,17 @@ class CohortsController < ApplicationController
   end
 
   def new
-    @course = Course.find(params[:course_id])
     @cohort = Cohort.new
     @houses = House.all
     @houses = @houses.sort_by{|house| house.points}
-    @color_scheme = @houses[0].name.downcase
+    @color_scheme = @houses[3].name.downcase
   end
 
   def create
     @cohort = Cohort.create(cohort_params)
+    @course = Course.find(params[:course_id])
 
-    redirect_to "/courses/#{@cohort.course.id}/cohorts"
+    redirect_to "/courses/#{@cohort.course_id}/cohorts"
   end
 
   def show

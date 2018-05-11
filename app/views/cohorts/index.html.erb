@@ -1,3 +1,4 @@
+<% @course_id = params[:course_id] %>
 <div class="header-container <%=@color_scheme%>_header">
 <h1 class="text-center <%=@color_scheme%>-h">Cohorts</h1>
 </div>
@@ -11,7 +12,7 @@
         <th>End Date</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="all-cohorts">
       <% @cohorts.each do |cohort| %>
       <tr>
         <td> <a href="/courses/<%=params[:course_id]%>/cohorts/<%=cohort.id%>"><%= cohort.name %></a></td>
@@ -22,4 +23,9 @@
       <% end %>
     </tbody>
   </table>
+  <% if current_user.userable_type == 'Administrator' %>
+  <%= link_to 'Create new Cohort!', new_course_cohort_path, remote: true, id: "cohort-ajaxcall" %>
+  <div id="cohort-form" style="display:none;">
+  </div>
+  <% end %>
 </div>

@@ -1,0 +1,8 @@
+console.log('I am in students');
+
+let student_form = document.getElementById('student-form');
+
+//set the innerHTML to a string of html elements
+student_form.innerHTML = "<%= j (render 'form') %>";
+
+student_form.style.display = "block";

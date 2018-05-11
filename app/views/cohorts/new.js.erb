@@ -1,0 +1,8 @@
+console.log('<%=params[:course_id]%>');
+
+let form = document.getElementById('cohort-form');
+
+//set the innerHTML to a string of html elements
+form.innerHTML = "<%= j (render 'form') %>";
+
+form.style.display = "block";

@@ -9,13 +9,16 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.create(student_params)
-    @profile = Profile.new
-    redirect_to '/profiles/new'
+    @student.build_user(email:params[:email], password: '654321').save
   end
 
   def show
-    @student = Student.find(params[:id])
-    @color_scheme = House.find(@student.house_id).name.downcase
+    if current_user.userable_type == "Administrator"
+      @student = Student.find(params[:id])
+      @color_scheme = House.find(@student.house_id).name.downcase
+    else
+      redirect_to '/students'
+    end
   end
 
   def edit
@@ -44,6 +47,6 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :age, :education)
+    params.require(:student).permit(:first_name, :last_name, :age, :education, :house_id)
   end
 end

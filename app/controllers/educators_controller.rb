@@ -10,18 +10,21 @@ class EducatorsController < ApplicationController
 
   def create
     @educator = Educator.create(educator_params)
-    @profile = Profile.new
-    redirect_to '/profiles/new'
+    @educator.build_user(email:params[:email], password: '123456').save
   end
 
   def show
+    if current_user.userable_type == "Administrator"
     @educator = Educator.find(params[:id])
-      @color_scheme = @educator.house.name.downcase
+    @color_scheme = House.find(@educator.house_id).name.downcase
+  else
+    redirect_to '/educators'
+  end
   end
 
   def edit
     @educator = Educator.find(params[:id])
-    @color_scheme = @educator.house.name.downcase
+    @color_scheme = House.find(@educator.house_id).name.downcase
   end
 
   def update
@@ -36,15 +39,19 @@ class EducatorsController < ApplicationController
   end
 
   def new
+     if current_user.userable_type == "Administrator"
     @educator = Educator.new
     @houses = House.all
     @houses = @houses.sort_by{|house| house.points}
     @color_scheme = @houses[3].name.downcase
+  else
+    redirect_to '/educators'
+  end
   end
 
   private
 
   def educator_params
-    params.require(:educator).permit(:first_name, :last_name, :age, :education, :salary)
+    params.require(:educator).permit(:first_name, :last_name, :age, :education, :salary, :house_id)
   end
 end

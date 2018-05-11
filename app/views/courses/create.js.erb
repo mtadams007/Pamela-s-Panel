@@ -1,0 +1,5 @@
+form.style.display = "none";
+
+
+//Render my new task into a partial and render that partial onto the screen via DOM manipulation
+$('#all-courses').append('<tr><td><a href="/courses/<%=@course.id%>/cohorts"></a></td> <td><%= @course.hours%> </td> </tr>');

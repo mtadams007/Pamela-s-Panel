@@ -8,7 +8,7 @@
         <th>Hours</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="all-courses">
       <% @courses.each do |course| %>
       <tr>
         <td> <a href="/courses/<%=course.id%>/cohorts"><%= course.name %></a></td>
@@ -17,4 +17,9 @@
       <% end %>
     </tbody>
   </table>
+  <% if current_user.userable_type == 'Administrator' %>
+  <%= link_to 'Create new Course!', new_course_path, remote: true, id: "course-ajaxcall" %>
+  <div id="course-form" style="display:none;">
+  </div>
+  <% end %>
 </div>

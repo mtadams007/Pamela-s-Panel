@@ -10,14 +10,20 @@
         <th>Age</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="all-students">
       <% @students.each do |student| %>
       <tr>
-        <td> <a href="/students/<%=student.id%>"><%= student.first_name %></a></td>
+        <td>
+          <% if current_user.userable_type == "Administrator"%><a href="/students/<%=student.id%>"><%= student.first_name %></a><% else %><%= student.first_name %><% end %></td>
         <td><%= student.last_name %></td>
         <td><%= student.age %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
+  <% if current_user.userable_type == 'Administrator' %>
+  <%= link_to 'Invite new Student!', new_student_path, remote: true, id: "student-ajaxcall" %>
+  <div id="student-form" style="display:none;">
+  </div>
+  <% end %>
 </div>

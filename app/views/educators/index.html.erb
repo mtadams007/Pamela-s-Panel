@@ -11,7 +11,7 @@
         <th>Salary</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="all-educators">
       <% @educators.each do |educator| %>
       <tr>
         <td> <a href="/educators/<%=educator.id%>"><%= educator.first_name %></a></td>
@@ -23,4 +23,9 @@
       <% end %>
     </tbody>
   </table>
+  <% if current_user.userable_type == 'Administrator' %>
+  <%= link_to 'Hire new Professor!', new_educator_path, remote: true, id: "ajaxcall" %>
+  <div id="educator-form" style="display:none;">
+  </div>
+  <% end %>
 </div>
