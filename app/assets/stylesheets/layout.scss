@@ -4,7 +4,16 @@
 @import 'partials/colors';
 
 
+#school_crest {
+  height: 150px;
+  position:absolute;
+  z-index: 100000;
+  margin-top: -50px;
+}
 
+.move_me_down {
+  margin-top:100px
+}
 
 h2 {
   font-family: Kurale, serif;
@@ -14,6 +23,14 @@ h1 {
   margin-bottom: 0px;
   padding-bottom: 9px;
   font-family: Kurale, serif;
+}
+h4 {
+  font-family: Kurale, serif;
+}
+
+#song {
+  border: 2px solid black;
+  margin: 20px 90px;
 }
 
 .ravenclaw-h{
@@ -173,6 +190,9 @@ body {
   border-radius: 0;
 }
 
+a {
+  color: white;
+}
 /*
  * Dashboard
  */

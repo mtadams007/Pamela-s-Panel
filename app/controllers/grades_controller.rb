@@ -2,6 +2,9 @@ class GradesController < ApplicationController
 
   def index
     @cohort = Cohort.find(params[:cohort_id])
+    @houses = House.all
+    @houses = @houses.sort_by{|house| house.points}
+    @color_scheme = @houses[3].name.downcase
   end
 
   def new
@@ -26,6 +29,9 @@ class GradesController < ApplicationController
 
   def show
     @grade = Grade.find(params[:id])
+    @grade = Grade.find(params[:id])
+    @student = Student.where(id: @grade.student_id)[0]
+    @color_scheme = House.find(@student.house_id).name.downcase
   end
 
   def edit

@@ -1,3 +1,7 @@
+<% @houses = House.all
+@houses = @houses.sort_by{|house| house.points}
+@color_scheme = @houses[3].name.downcase %>
+
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -22,5 +26,3 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

@@ -3,6 +3,9 @@ class EducatorsController < ApplicationController
 
   def index
     @educators = Educator.all
+    @houses = House.all
+    @houses = @houses.sort_by{|house| house.points}
+    @color_scheme = @houses[3].name.downcase
   end
 
   def create
@@ -13,10 +16,12 @@ class EducatorsController < ApplicationController
 
   def show
     @educator = Educator.find(params[:id])
+      @color_scheme = @educator.house.name.downcase
   end
 
   def edit
     @educator = Educator.find(params[:id])
+    @color_scheme = @educator.house.name.downcase
   end
 
   def update
@@ -32,6 +37,9 @@ class EducatorsController < ApplicationController
 
   def new
     @educator = Educator.new
+    @houses = House.all
+    @houses = @houses.sort_by{|house| house.points}
+    @color_scheme = @houses[3].name.downcase
   end
 
   private

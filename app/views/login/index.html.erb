@@ -1,7 +1,22 @@
 <%if user_signed_in?%>
 <h1> <%= link_to current_user.email, edit_user_registration_path %> </h1>
 <%else%>
-<h1> <%= link_to "Login", new_user_session_path %> </h1>
+<h1 class="text-center"> Welcome to Hogwarts School of Witchcraft and Wizardry! </h1>
 <%end%>
 <% if notice %> <div class="alert alert-info"><%=notice%></div><%end%>
 <% if alert %> <div class="alert alert-warning"><%=alert%></div><%end%>
+<div id="song">
+<h4 class="text-center">Hogwarts, Hogwarts, Hoggy Warty Hogwarts,</h4>
+<h4 class="text-center">Teach us something please,</h4>
+<h4 class="text-center">Whether we be old and bald</h4>
+<h4 class="text-center">Or young with scabby knees,</h4>
+<h4 class="text-center">Our heads could do with filling</h4>
+<h4 class="text-center">With some interesting stuff,</h4>
+<h4 class="text-center">For now they’re bare and full of air,</h4>
+<h4 class="text-center">Dead flies and bits of fluff,</h4>
+<h4 class="text-center">So teach us things worth knowing,</h4>
+<h4 class="text-center">Bring back what we’ve forgot,</h4>
+<h4 class="text-center">Just do your best, we’ll do the rest,</h4>
+<h4 class="text-center">And learn until our brains all rot.</h4>
+</div>
+<div class="text-center"><button type="button" class="btn btn-dark"><%= link_to "Enter", new_user_session_path %></button></div>

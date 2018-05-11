@@ -3,11 +3,17 @@ class CohortsController < ApplicationController
   def index
     # if statements when i can finally log in...
     @cohorts = Cohort.where(course_id: params[:course_id])
+    @houses = House.all
+    @houses = @houses.sort_by{|house| house.points}
+    @color_scheme = @houses[3].name.downcase
   end
 
   def new
     @course = Course.find(params[:course_id])
     @cohort = Cohort.new
+    @houses = House.all
+    @houses = @houses.sort_by{|house| house.points}
+    @color_scheme = @houses[0].name.downcase
   end
 
   def create
@@ -25,6 +31,7 @@ class CohortsController < ApplicationController
   def edit
     @course = Course.find(params[:course_id])
     @cohort = Cohort.find(params[:id])
+    @color_scheme = House.find(@cohort.educator.house_id).name.downcase
   end
 
   def update

@@ -2,6 +2,9 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.all
+    @houses = House.all
+    @houses = @houses.sort_by{|house| house.points}
+    @color_scheme = @houses[3].name.downcase
   end
 
   def create
@@ -15,6 +18,9 @@ class CoursesController < ApplicationController
 
   def edit
     @course = Course.find(params[:id])
+    @houses = House.all
+    @houses = @houses.sort_by{|house| house.points}
+    @color_scheme = @houses[3].name.downcase
   end
 
   def update
@@ -30,6 +36,9 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @houses = House.all
+    @houses = @houses.sort_by{|house| house.points}
+    @color_scheme = @houses[3].name.downcase
   end
 
   private
