@@ -17,8 +17,6 @@ class CohortsController < ApplicationController
 
   def create
     @cohort = Cohort.create(cohort_params)
-    @course = Course.find(params[:course_id])
-
     redirect_to "/courses/#{@cohort.course_id}/cohorts"
   end
 

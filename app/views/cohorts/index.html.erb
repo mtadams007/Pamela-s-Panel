@@ -25,7 +25,7 @@
   </table>
   <% if current_user.userable_type == 'Administrator' %>
   <%= link_to 'Create new Cohort!', new_course_cohort_path, remote: true, id: "cohort-ajaxcall" %>
-  <div id="cohort-form" style="display:none;">
+  <div id="cohort_form" style="display:none;">
   </div>
   <% end %>
 </div>
