@@ -1,5 +1,5 @@
 <div class="header-container <%=@color_scheme%>_header">
-<h1 class="text-center <%=@color_scheme%>-h">hi</h1></div>
+<h1 class="text-center <%=@color_scheme%>-h"><%=@cohort.name%></h1></div>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -12,12 +12,19 @@
     </thead>
     <tbody>
       <% @cohort.students.each do |student| %>
+      <% grade = student.grades.find_by(cohort_id: @cohort.id)%>
       <tr>
         <td> <a href="/students/<%=student.id%>"><%= student.first_name %></a></td>
         <td><%= student.last_name %></td>
         <td><%= student.grades.find_by(cohort_id: @cohort.id).mark %></td>
+        <td><%= link_to 'Kick Out', grade_path(grade), method: :delete, remote:true, data: { confirm: 'Are you sure you want to remove this student?' } %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
+
+  <%= link_to 'Add Student!', new_cohort_grade_path, remote: true, id: "grade-ajaxcall" %>
+  <div id="grade_form" style="display:none;">
+  </div>
+
 </div>

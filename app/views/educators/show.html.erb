@@ -1,3 +1,7 @@
 <div class="header-container <%=@color_scheme%>_header">
-<h1 class="text-center <%=@color_scheme%>-h">@educator</h1></div>
+<h1 class="text-center <%=@color_scheme%>-h"><%=@educator.full_name%></h1></div>
+<ul>
+  <li>Education: <%=@educator.education %></li>
+  <li>Age: <%=@educator.age %></li>
+  <li>Salary: <%=@educator.salary %> Galleons</li>
 <a href="<%=params[:id]%>/edit"><button type="button" class="btn btn-primary" >Edit</button></a>

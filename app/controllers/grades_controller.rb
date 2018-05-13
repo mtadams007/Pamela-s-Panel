@@ -48,6 +48,13 @@ class GradesController < ApplicationController
     redirect_to "/cohorts/#{params[:cohort_id]}/"
   end
 
+  def destroy
+    @grade = Grade.find(params[:id])
+    id = @grade.cohort_id
+    @grade.destroy
+    redirect_to "/cohorts/#{id}/grades"
+  end
+
   private
 
   def grade_params

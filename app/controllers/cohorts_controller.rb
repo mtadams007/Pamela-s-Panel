@@ -21,8 +21,17 @@ class CohortsController < ApplicationController
   end
 
   def show
+
     @cohort = Cohort.find(params[:id])
+    if current_user.userable_type == 'Administrator'
+
+      redirect_to "/cohorts/#{params[:id]}/grades"
+    elsif current_user.userable_type == "Educator" && @cohort.educator_id == current_user.userable_id
+      redirect_to "/cohorts/#{params[:id]}/grades"
+    else
+
     @color_scheme = House.find(@cohort.educator.house_id).name.downcase
+  end
 
   end
 
