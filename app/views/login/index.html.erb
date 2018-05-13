@@ -1,10 +1,6 @@
-<%if user_signed_in?%>
-<h1> <%= link_to current_user.email, edit_user_registration_path %> </h1>
-<%else%>
-<h1 class="text-center"> Welcome to Hogwarts School of Witchcraft and Wizardry! </h1>
-<%end%>
 <% if notice %> <div class="alert alert-info"><%=notice%></div><%end%>
 <% if alert %> <div class="alert alert-warning"><%=alert%></div><%end%>
+<h1 class="text-center"> Welcome to Hogwarts School of Witchcraft and Wizardry! </h1>
 <div id="song">
 <h4 class="text-center">Hogwarts, Hogwarts, Hoggy Warty Hogwarts,</h4>
 <h4 class="text-center">Teach us something please,</h4>
@@ -19,4 +15,4 @@
 <h4 class="text-center">Just do your best, we’ll do the rest,</h4>
 <h4 class="text-center">And learn until our brains all rot.</h4>
 </div>
-<div class="text-center"><button type="button" class="btn btn-dark"><%= link_to "Enter", new_user_session_path %></button></div>
+<div class="text-center"><button type="button" class="btn btn-dark"><%= link_to "Enter", new_user_session_path, class: "makemewhite" %></button></div>

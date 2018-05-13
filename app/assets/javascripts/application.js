@@ -18,7 +18,7 @@
 //= require popper
 //= require bootstrap-sprockets
 
-$(".nav .nav-link").hover(function(){
+$(".nav-link").hover(function(){
    $(this).addClass("coloring");
 }, function(){
   $(this).removeClass("coloring");

@@ -1,5 +1,17 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+<%if current_user.userable_type == 'Administrator'%>
+<%@color_scheme='gryffindor'%>
+<%elsif%>
+<%current_user.userable_type =="Student"%>
+<%@student=Student.find(current_user.userable_id)%>
+<%@color_scheme = House.find(@student.house_id).name.downcase%>
+<%else%>
+<%@educator=Educator.find(current_user.userable_id)%>
+<%@color_scheme = House.find(@educator.house_id).name.downcase%>
+<%end%>
+
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 

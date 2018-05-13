@@ -4,9 +4,9 @@
   <img src="/assets/Hogwarts_Crest.png" id="school_crest">
   <span class="navbar-toggler-icon"></span>
   <%if user_signed_in?%>
-  <h2 class="navbar-brand <%=@color_scheme%>_text"  ><%= link_to "Logout", destroy_user_session_path, method: :delete%></h2>
+  <a class="nav-link  <%=@color_scheme%>_text <%=@color_scheme%>_active" href="<%=destroy_user_session_path%>" data-method="delete">Logout</a>
   <%else%>
-  <h2 class="<%=@color_scheme%>_text"> <%= link_to "Login", new_user_session_path %> </h2>
+  <h2 class="<%=@color_scheme%>_text"> Hogwarts </h2>
   <%end%>
 
 

@@ -15,10 +15,14 @@
       <tr>
         <td>
           <% if current_user.userable_type == "Administrator"%><a href="/students/<%=student.id%>"><%= student.first_name %></a><% else %><%= student.first_name %><% end %></td>
-        <td><%= student.last_name %></td>
-        <td><%= student.age %></td>
-      </tr>
-      <% end %>
+          <td><%= student.last_name %></td>
+          <td><%= student.age %></td>
+          <!-- Adding edit and delete ajax calls -->
+          <td><%= link_to 'Edit', edit_student_path(student), remote:true %></td>
+          <td><%= link_to 'Expel', student_path(student), method: :delete, remote:true, data: { confirm: 'Are you sure you want to expel this student?' } %></td>
+          <!-- Ending and delete functionalities -->
+        </tr>
+        <% end %>
     </tbody>
   </table>
   <% if current_user.userable_type == 'Administrator' %>

@@ -19,6 +19,10 @@
         <td><%= educator.education %></td>
         <td><%= educator.age %></td>
         <td><%= educator.salary %></td>
+        <!-- Adding edit and delete ajax calls -->
+        <td><%= link_to 'Edit', edit_educator_path(educator), remote:true %></td>
+        <td><%= link_to 'Fire', educator_path(educator), method: :delete, remote:true, data: { confirm: 'Are you sure you want to fire this educator?' } %></td>
+        <!-- Ending and delete functionalities -->
       </tr>
       <% end %>
     </tbody>
