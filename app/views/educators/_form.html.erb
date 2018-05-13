@@ -1,24 +1,38 @@
-<%= form_for @educator, remote: true do |f| %>
+<div class="container">
+<%= bootstrap_form_for @educator, remote:true do |f| %>
 
-<%= f.label :first_name %>
+<div class="form-row">
+  <div class="col">
 <%= f.text_field :first_name%>
-
-<%= f.label :last_name %>
+</div>
+  <div class="col">
 <%= f.text_field :last_name%>
-
-<%= f.label :age %>
+</div>
+</div>
+<div class="form-row">
+  <div class="col">
 <%= f.number_field :age%>
-
-<%= f.label :salary %>
+</div>
+  <div class="col">
 <%= f.number_field :salary%>
+</div>
+</div>
+<div class="form-row">
 
-<%= f.label :education %>
+  <div class="col">
 <%= f.text_field :education%>
-
+</div>
+  <div class="col">
 <%= f.collection_select :house_id, House.order(:name),:id,:name %>
+</div>
+</div>
+<div class="form-row">
 
-<input type="email" name="email"></input>
-
-
+  <div class="col">
+<label for="email">Email</label>
+<input type="email" name="email" class="form-control"></input>
+</div>
+</div>
 <%= f.submit %>
 <% end %>
+</div>

@@ -66,3 +66,7 @@ gem 'bootstrap', '~> 4.1.0'
 gem 'jquery-rails'
 
 gem 'devise'
+
+gem "bootstrap_form",
+    git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
+    branch: "master"
