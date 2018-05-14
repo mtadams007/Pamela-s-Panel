@@ -67,6 +67,10 @@ gem 'jquery-rails'
 
 gem 'devise'
 
+gem 'rollbar'
+
+gem 'oj', '~> 2.16.1'
+
 gem "bootstrap_form",
     git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
     branch: "master"
