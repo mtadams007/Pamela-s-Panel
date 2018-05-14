@@ -4,4 +4,4 @@ form.style.display = "none";
 
 
 //Render my new task into a partial and render that partial onto the screen via DOM manipulation
-$('#all-students').append('<tr><td><a href="/students/<%=@student.id%>"><%= @student.first_name %></a></td> <td><%= @student.last_name %></td><td><%= @student.age %></td></tr>');
+$('#all-students').append('<tr><td><a href="/students/<%=@student.id%>"><%= @student.first_name %></a></td> <td><%= @student.last_name %></td><td><%= @student.age %></td><td><a href="/students/<%=@student.id%>/edit">Edit</a></td><td><%= link_to "Expel", student_path(@student), method: :delete, remote:true, data: { confirm: "Are you sure you want to expel this student?" } %></td></tr>');
