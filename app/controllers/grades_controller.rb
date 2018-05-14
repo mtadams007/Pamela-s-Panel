@@ -1,4 +1,5 @@
 class GradesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @cohort = Cohort.find(params[:cohort_id])
@@ -15,8 +16,9 @@ class GradesController < ApplicationController
   end
 
   def new
-    if current_user.userable_type == "Administrator" || (current_user.userable_type == "Educator" && @cohort.educator_id == current_user.userable_id)
     @cohort = Cohort.find(params[:cohort_id])
+    if current_user.userable_type == "Administrator" || (current_user.userable_type == "Educator" && @cohort.educator_id == current_user.userable_id)
+
     @grade = Grade.new
     @students = []
     cohort_pupils = @cohort.students

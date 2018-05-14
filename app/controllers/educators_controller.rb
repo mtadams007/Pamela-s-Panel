@@ -14,12 +14,10 @@ class EducatorsController < ApplicationController
   end
 
   def show
-    if current_user.userable_type == "Administrator"
+
     @educator = Educator.find(params[:id])
     @color_scheme = House.find(@educator.house_id).name.downcase
-  else
-    redirect_to '/educators'
-  end
+
   end
 
   def edit

@@ -2,15 +2,15 @@
 <%= bootstrap_form_for @student, remote:true do |f| %>
 <div class="form-row">
   <div class="col">
-  <%= f.text_field :first_name%>
+  <%= f.text_field :first_name, required:true%>
 </div>
   <div class="col">
-  <%= f.text_field :last_name%>
+  <%= f.text_field :last_name, required:true%>
 </div>
 </div>
 <div class="form-row">
   <div class="col">
-  <%= f.number_field :age%>
+  <%= f.number_field :age, required:true, max:150, min:4%>
 </div>
   <div class="col">
   <%= f.select :education, ['High School',  'College' , 'Masters',  'Phd']%>
@@ -19,11 +19,11 @@
 <div class="form-row">
 
   <div class="col">
-  <%= f.collection_select :house_id, House.order(:name),:id,:name %>
+  <%= f.collection_select :house_id, House.order(:name),:id,:name, required:true %>
 </div>
   <div class="col">
     <label for="email">Email</label>
-  <input type="email" name="email" class="form-control"></input>
+  <input type="email" name="email" class="form-control" required></input>
 </div>
 </div>
   <%= f.submit %>

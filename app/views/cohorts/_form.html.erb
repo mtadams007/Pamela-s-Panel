@@ -3,7 +3,7 @@
 <div class="form-row">
   <div class="col">
 
-  <%= f.text_field :name%>
+  <%= f.text_field :name, required:true%>
 </div>
 <div class="col">
 <%= f.collection_select :educator_id, Educator.order(:last_name), :id,:last_name, include_blank: true %>
@@ -11,12 +11,12 @@
 </div>
   <div class="form-row">
   <div class="col">
-  <%= f.date_field :start%>
+  <%= f.date_field :start, required:true%>
 </div>
 
     <div class="col">
 
-  <%= f.date_field :end%>
+  <%= f.date_field :end, required:true%>
 </div>
 
 </div>

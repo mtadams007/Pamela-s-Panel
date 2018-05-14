@@ -1,7 +1,7 @@
-<%= form_for @course do |f| %>
-    <%= f.label :name %>
+<%= bootstrap_form_for @course do |f| %>
+
     <%= f.text_field :name, value: @course.name%>
-    <%= f.label :hours %>
+
     <%= f.number_field :hours, value: @course.hours%>
     <%= f.submit %>
 <% end %>

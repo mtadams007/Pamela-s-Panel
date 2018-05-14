@@ -1,7 +1,18 @@
 <div class="header-container <%=@color_scheme%>_header">
 <h1 class="text-center <%=@color_scheme%>-h"><%=@educator.full_name%></h1></div>
+<h2> Cohorts </h2>
+<ul>
+<% @educator.cohorts.each do |cohort| %>
+<li> <a href="/cohorts/<%=cohort.id%>"<%=cohort.name%>> <%=cohort.name%></a> </li>
+<%end%>
+</ul>
+
+
+<% if current_user.userable_type == "Administrator" %>
+<h2> Information </h2>
 <ul>
   <li>Education: <%=@educator.education %></li>
   <li>Age: <%=@educator.age %></li>
   <li>Salary: <%=@educator.salary %> Galleons</li>
 <a href="<%=params[:id]%>/edit"><button type="button" class="btn btn-primary" >Edit</button></a>
+<% end %>

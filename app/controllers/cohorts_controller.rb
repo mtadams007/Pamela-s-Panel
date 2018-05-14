@@ -1,4 +1,5 @@
 class CohortsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     # if statements when i can finally log in...
