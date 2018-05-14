@@ -1,4 +1,3 @@
-
 (function($) {
 $(".nav-link").hover(function(){
    $(this).addClass("coloring");
@@ -7,4 +6,6 @@ $(".nav-link").hover(function(){
 });
 })(jQuery);
 
-let form;
+{
+  let form;
+}

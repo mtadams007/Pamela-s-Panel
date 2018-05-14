@@ -7,8 +7,10 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Education</th>
+        <% if current_user.userable_type == "Administrator"%>
         <th>Age</th>
         <th>Salary</th>
+        <%end%>
       </tr>
     </thead>
     <tbody id="all-educators">
@@ -17,12 +19,14 @@
         <td> <a href="/educators/<%=educator.id%>"><%= educator.first_name %></a></td>
         <td><%= educator.last_name %></td>
         <td><%= educator.education %></td>
+        <% if current_user.userable_type == "Administrator"%>
         <td><%= educator.age %></td>
         <td><%= educator.salary %></td>
         <!-- Adding edit and delete ajax calls -->
         <td><a href="/educators/<%=educator.id%>/edit">Edit</a></td>
         <td><%= link_to 'Fire', educator_path(educator), method: :delete, remote:true, data: { confirm: 'Are you sure you want to fire this educator?' } %></td>
         <!-- Ending and delete functionalities -->
+        <%end%>
       </tr>
       <% end %>
     </tbody>

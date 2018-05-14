@@ -12,15 +12,16 @@ class CoursesController < ApplicationController
     redirect_to '/courses'
   end
 
-  def show
-    @course = Course.find(params[:id])
-  end
 
   def edit
+    if current_user.userable_type == "Administrator"
     @course = Course.find(params[:id])
     @houses = House.all
     @houses = @houses.sort_by{|house| house.points}
     @color_scheme = @houses[3].name.downcase
+  else
+    redirect_to '/courses'
+  end
   end
 
   def update
@@ -35,10 +36,14 @@ class CoursesController < ApplicationController
   end
 
   def new
+    if current_user.userable_type == "Administrator"
     @course = Course.new
     @houses = House.all
     @houses = @houses.sort_by{|house| house.points}
     @color_scheme = @houses[3].name.downcase
+  else
+    redirect_to '/courses'
+  end
   end
 
   private

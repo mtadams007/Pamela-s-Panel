@@ -5,9 +5,17 @@ class GradesController < ApplicationController
     @houses = House.all
     @houses = @houses.sort_by{|house| house.points}
     @color_scheme = @houses[3].name.downcase
+    if current_user.userable_type == "Administrator"
+
+    elsif current_user.userable_type == "Educator" && @cohort.educator_id == current_user.userable_id
+
+    else
+      redirect_to '/courses'
+    end
   end
 
   def new
+    if current_user.userable_type == "Administrator" || (current_user.userable_type == "Educator" && @cohort.educator_id == current_user.userable_id)
     @cohort = Cohort.find(params[:cohort_id])
     @grade = Grade.new
     @students = []
@@ -20,7 +28,10 @@ class GradesController < ApplicationController
       end
     end
     @color_scheme = House.find(@cohort.educator.house_id).name.downcase
+  else
+    redirect_to '/courses'
   end
+end
 
   def create
     @grade = Grade.create(grade_params)

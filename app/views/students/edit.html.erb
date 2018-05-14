@@ -1,13 +1,28 @@
-<%= form_for @student do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, value: @student.first_name%>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, value: @student.last_name%>
-    <%= f.label :age %>
-    <%= f.number_field :age, value: @student.age%>
-    <%= f.label :education %>
-    <%= f.text_field :education, value: @student.education%>
-    <%= f.submit %>
-<% end %>
+<div class="container">
+<%= bootstrap_form_for @student, remote:true do |f| %>
+<div class="form-row">
+  <div class="col">
+  <%= f.text_field :first_name%>
+</div>
+  <div class="col">
+  <%= f.text_field :last_name%>
+</div>
+</div>
+<div class="form-row">
+  <div class="col">
+  <%= f.number_field :age%>
+</div>
+  <div class="col">
+  <%= f.select :education, ['High School',  'College' , 'Masters',  'Phd']%>
+</div>
+</div>
+<div class="form-row">
 
-<%= link_to 'Expel', student_path(@student), method: :delete %>
+  <div class="col">
+  <%= f.collection_select :house_id, House.order(:name),:id,:name %>
+</div>
+  
+</div>
+  <%= f.submit %>
+<% end %>
+</div>

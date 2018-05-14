@@ -1,5 +1,8 @@
-<%= form_for @house do |f| %>
-    <%= f.label :points %>
+<div class="header-container <%=@color_scheme%>_header">
+<h1 class="text-center <%=@color_scheme%>-h"><%=@house.name%></h1></div>
+
+<%= bootstrap_form_for @house do |f| %>
+
     <%= f.number_field :points, value: @house.points%>
     <%= f.submit %>
 <% end %>

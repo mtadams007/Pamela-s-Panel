@@ -20,7 +20,7 @@
 <div class="form-row">
 
   <div class="col">
-<%= f.text_field :education%>
+<%= f.select :education, ['High School',  'College' , 'Masters',  'Phd']%>
 </div>
   <div class="col">
 <%= f.collection_select :house_id, House.order(:name),:id,:name %>

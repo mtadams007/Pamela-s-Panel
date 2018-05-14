@@ -14,8 +14,10 @@
         <td> <a href="/courses/<%=course.id%>/cohorts"><%= course.name %></a></td>
         <td><%= course.hours %></td>
         <!-- Adding edit and delete ajax calls -->
+        <% if current_user.userable_type == "Administrator"%>
                 <td><%= link_to 'Edit', edit_course_path(course), remote:true %></td>
-          <td><%= link_to 'Destroy', course_path(course), method: :delete, remote:true, data: { confirm: 'Are you sure you want to delete this course?' } %></td>
+          <td><%= link_to 'Drop', course_path(course), method: :delete, remote:true, data: { confirm: 'Are you sure you want to delete this course?' } %></td>
+          <%end%>
           <!-- Ending and delete functionalities -->
       </tr>
       <% end %>
