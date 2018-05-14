@@ -1,1 +1,37 @@
-<h1>imma use</h1>
+<div class="header-container <%=@color_scheme%>_header">
+<h1 class="text-center <%=@color_scheme%>-h">Administrators</h1></div>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Education</th>
+        <% if current_user.userable_type == "Administrator"%>
+        <th>Age</th>
+        <th>Salary</th>
+        <%end%>
+      </tr>
+    </thead>
+    <tbody id="all-administrators">
+      <% @administrators.each do |administrator| %>
+      <tr>
+        <td> <a href="/administrators/<%=administrator.id%>"><%= administrator.first_name %></a></td>
+        <td><%= administrator.last_name %></td>
+        <td><%= administrator.education %></td>
+        <% if current_user.userable_type == "Administrator"%>
+        <td><%= administrator.age %></td>
+        <td><%= administrator.salary %></td>
+        <!-- Adding edit and delete ajax calls -->
+        <td><a href="/administrators/<%=administrator.id%>/edit">Edit</a></td>
+        <td><%= link_to 'Fire', administrator_path(administrator), method: :delete, remote:true, data: { confirm: 'Are you sure you want to fire this administrator?' } %></td>
+        <!-- Ending and delete functionalities -->
+        <%end%>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Hire new Administrator!', new_administrator_path%>
+
+</div>

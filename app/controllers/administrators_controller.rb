@@ -1,36 +1,68 @@
 class AdministratorsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-    @administrators = Administrator.all
+    if current_user.userable_type == "Administrator"
+      @color_scheme = 'gryffindor'
+      @administrators = Administrator.all
+    else
+      redirect_to '/house'
+    end
   end
 
   def create
-    @administrator = Administrator.create(administrator_params)
-    @profile = Profile.new
-    redirect_to '/profiles/new'
+    if current_user.userable_type == "Administrator"
+      @administrator = Administrator.create(administrator_params)
+      @administrator.build_user(email:params[:email], password: '123456').save
+    else
+      redirect_to '/house'
+    end
   end
 
   def show
-    @administrator = Administrator.find(params[:id])
+    if current_user.userable_type == "Administrator"
+      @color_scheme = 'gryffindor'
+      @administrator = Administrator.find(params[:id])
+    else
+      redirect_to '/house'
+    end
   end
 
   def edit
-    @administrator = Administrator.find(params[:id])
+    if current_user.userable_type == "Administrator"
+      @color_scheme = 'gryffindor'
+      @administrator = Administrator.find(params[:id])
+    else
+      redirect_to '/house'
+    end
   end
 
   def update
-    @administrator = Administrator.find(params[:id])
-    @administrator.update(administrator_params)
-    redirect_to '/administrators'
+    if current_user.userable_type == "Administrator"
+      @administrator = Administrator.find(params[:id])
+      @administrator.update(administrator_params)
+      redirect_to '/administrators'
+    else
+      redirect_to '/house'
+    end
   end
 
   def destroy
-    Administrator.find(params[:id]).destroy
-    redirect_to '/administrators'
+    if current_user.userable_type == "Administrator"
+      Administrator.find(params[:id]).destroy
+      redirect_to '/administrators'
+    else
+      redirect_to '/house'
+    end
   end
 
   def new
-    @administrator = Administrator.new
+    if current_user.userable_type == "Administrator"
+      @color_scheme = 'gryffindor'
+      @administrator = Administrator.new
+    else
+      redirect_to '/house'
+    end
   end
 
   private

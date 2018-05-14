@@ -40,12 +40,6 @@ end
     redirect_to "/cohorts/#{params[:cohort_id]}/grades"
   end
 
-  def show
-    @grade = Grade.find(params[:id])
-    @grade = Grade.find(params[:id])
-    @student = Student.where(id: @grade.student_id)[0]
-    @color_scheme = House.find(@student.house_id).name.downcase
-  end
 
   def edit
     @cohort = Cohort.find(params[:cohort_id])

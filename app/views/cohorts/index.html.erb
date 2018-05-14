@@ -1,4 +1,5 @@
 <% @course_id = params[:course_id] %>
+<% @course = Course.find(@course_id) %>
 <div class="header-container <%=@color_scheme%>_header">
 <h1 class="text-center <%=@color_scheme%>-h">Cohorts</h1>
 </div>
@@ -33,4 +34,15 @@
   <div id="cohort_form" style="display:none;">
   </div>
   <% end %>
+</div>
+<div class="container text-center">
+  <% if @course.name == "Potions" %>
+<img class="cohort-icon" src="/assets/potions.png">
+<% elsif @course.name == "Herbology" %>
+<img class="cohort-icon" src="/assets/herbology.png">
+<% elsif @course.name == "Defense Against the Dark Arts" %>
+<img class="cohort-icon" src="/assets/DADA.png">
+<% else %>
+<img class="cohort-icon" src="/assets/other.png">
+<%end%>
 </div>
