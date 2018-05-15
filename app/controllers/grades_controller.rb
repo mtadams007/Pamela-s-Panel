@@ -37,6 +37,7 @@ end
 
   def create
     @grade = Grade.create(grade_params)
+    @cohort = Cohort.find(params[:cohort_id])
     redirect_to "/cohorts/#{params[:cohort_id]}/grades"
   end
 

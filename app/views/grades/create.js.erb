@@ -1,3 +1,3 @@
 form.style.display = "none";
 
-$('#cohort-students').append('<tr><td> <a href="/students/<%=student.id%>"><%= student.first_name %></a></td><td><%= student.last_name %></td><td><%= student.age %></td><td><a href="/cohorts/<%=@cohort.id%>/grades/<%=student.grades.find_by(cohort_id:@cohort.id).id%>/edit"><%= student.grades.find_by(cohort_id:@cohort.id).mark %></a></td> </tr>');
+$('#cohort-students').append('<tr><td> <%= @student.first_name %></td><td><%= @student.last_name %></td><td><a href="/cohorts/<%=@cohort.id%>/grades/<%=student.grades.find_by(cohort_id: @cohort.id).id%>/edit">N/A</a></td><td><%= link_to "Kick Out", grade_path(grade), method: :delete, remote:true, data: { confirm: "Are you sure you want to remove this student?" } %></td></tr>');
