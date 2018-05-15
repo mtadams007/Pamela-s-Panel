@@ -7,5 +7,5 @@ $(".nav-link").hover(function(){
 })(jQuery);
 
 {
-  let form;
+  let form = 'hi';
 }
