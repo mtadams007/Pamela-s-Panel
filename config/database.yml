@@ -82,4 +82,5 @@ production:
   <<: *default
   database: pamelas-panel_production
   username: pamelas-panel
+  url: <%= ENV['DATABASE_URL'] %>
   password: <%= ENV['PAMELAS-PANEL_DATABASE_PASSWORD'] %>
