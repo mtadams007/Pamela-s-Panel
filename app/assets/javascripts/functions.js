@@ -1,11 +1,10 @@
-(function($) {
-$(".nav-link").hover(function(){
-   $(this).addClass("coloring");
-}, function(){
-  $(this).removeClass("coloring");
-});
-})(jQuery);
+$( document ).ready(function() {
+    let form;
 
-{
-  let form = 'hi';
-}
+    $(".nav-link").hover(function(){
+       $(this).addClass("coloring");
+       console.log('kdjfsdfdf')
+    }, function(){
+      $(this).removeClass("coloring");
+    });
+});
