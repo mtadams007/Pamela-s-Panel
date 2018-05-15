@@ -10,7 +10,7 @@
 
       </tr>
     </thead>
-    <tbody>
+    <tbody id="cohort-students">
       <% @cohort.students.each do |student| %>
       <% grade = student.grades.find_by(cohort_id: @cohort.id)%>
       <tr>
