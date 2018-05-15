@@ -6,6 +6,6 @@ $(".nav-link").hover(function(){
 });
 })(jQuery);
 
-// {
-//   let form = 'hi';
-// }
+{
+  let form = 'hi';
+}
