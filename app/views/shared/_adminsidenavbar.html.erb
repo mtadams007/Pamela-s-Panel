@@ -20,6 +20,10 @@
     <% if current_user.userable_type == 'Administrator' %>
     <a class="nav-link  <%=@color_scheme%>_text <%=@color_scheme%>_active" href="/administrators">Administrators</a>
   </li>
+  <% elsif current_user.userable_type == "Student" %>
+  <a class="nav-link  <%=@color_scheme%>_text <%=@color_scheme%>_active" href="/students/<%=current_user.userable_id%>">My Classes</a>
+  <% else %>
+  <a class="nav-link  <%=@color_scheme%>_text <%=@color_scheme%>_active" href="/educators/<%=current_user.userable_id%>">My Classes</a>
   <%end%>
     <li class="nav-item">
       <a class="nav-link  <%=@color_scheme%>_text <%=@color_scheme%>_active" href="<%=edit_user_registration_path%>">My Settings</a>

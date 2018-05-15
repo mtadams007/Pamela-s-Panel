@@ -17,11 +17,12 @@
         <td> <%= Course.find(cohort.course_id).name %></td>
         <td> <%= cohort.name %></td>
         <td><%= cohort.educator.last_name %></td>
-        <td><a href="/cohorts/<%=cohort.id%>/grades/<%=cohort.grades.find_by(student_id: @student.id).id%>/edit"><%= cohort.grades.find_by(student_id: @student.id).mark %></a></td>
+        <td><%if current_user.userable_type == "Administrator"%><a href="/cohorts/<%=cohort.id%>/grades/<%=cohort.grades.find_by(student_id: @student.id).id%>/edit"><%= cohort.grades.find_by(student_id: @student.id).mark %></a><%else%><%= cohort.grades.find_by(student_id: @student.id).mark%> <%end%></td>
       </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-
+<% if current_user.userable_type == "Administrator" %>
 <a href="<%=params[:id]%>/edit"><button type="button" class="btn btn-primary" >Edit</button></a>
+<% end %>

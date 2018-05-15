@@ -14,9 +14,14 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @student = Student.find(params[:id])
+
     if current_user.userable_type == "Administrator"
-      @student = Student.find(params[:id])
+
       @color_scheme = House.find(@student.house_id).name.downcase
+    elsif current_user.userable_type == 'Student' && current_user.userable_id == @student.id
+        
+        @color_scheme = House.find(@student.house_id).name.downcase
     else
       redirect_to '/students'
     end

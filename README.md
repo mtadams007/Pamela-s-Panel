@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Potter's Panel. This is an admin table for Hogwarts School of Witchcraft and Wizardry.  There are three types of users who can log in, Administrators, Educators, and Students.
 
-Things you may want to cover:
+Students have the lowest level of access. They can view their own classes and cohorts as well as their own grades. They can see a list of all the educators but not their ages or salaries.
 
-* Ruby version
+Educators have another layer of access. They are able to see the same things as students, plus the grades of cohorts that they teach. They are also able to edit grades and add or eliminate students from their cohort.
 
-* System dependencies
+Administrators are able to see and edit all grades, cohorts and courses. They can also hire new teachers and add students to Hogwarts. Both administrators and educators also can add points to Houses. 
 
-* Configuration
+The color scheme of the different pages is based on the student or educator's house that the page is currently on. Otherwise it is based on the house that is currently ahead in the House Cup.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+Depending on what course you are on there is a different image. If there is none specified then there is just a magic wand.
 
 * ...
