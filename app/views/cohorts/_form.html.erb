@@ -6,7 +6,7 @@
   <%= f.text_field :name, required:true%>
 </div>
 <div class="col">
-<%= f.collection_select :educator_id, Educator.order(:last_name), :id,:full_name, include_blank: true %>
+<%= f.collection_select :educator_id, Educator.order(:last_name), :id,:full_name%>
 </div>
 </div>
   <div class="form-row">
